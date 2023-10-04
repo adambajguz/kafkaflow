@@ -24,7 +24,7 @@ namespace KafkaFlow.Consumers.DistributionStrategies
         }
 
         /// <inheritdoc />
-        public Task<IWorker> GetWorkerAsync(byte[] partitionKey, CancellationToken cancellationToken)
+        public Task<IWorker> GetWorkerAsync(byte[] messageKey, int partition, CancellationToken cancellationToken = default)
         {
             return this.freeWorkers.Reader.ReadAsync(cancellationToken).AsTask();
         }

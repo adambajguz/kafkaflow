@@ -35,7 +35,7 @@ namespace KafkaFlow.Configuration
         private ConsumerInitialState initialState = ConsumerInitialState.Running;
         private int statisticsInterval;
 
-        private Factory<IDistributionStrategy> distributionStrategyFactory = _ => new BytesSumDistributionStrategy();
+        private Factory<IDistributionStrategy> distributionStrategyFactory = _ => new PartitionKeyDistributionStrategy();
         private TimeSpan autoCommitInterval = TimeSpan.FromSeconds(5);
 
         private ConsumerCustomFactory customFactory = (consumer, _) => consumer;

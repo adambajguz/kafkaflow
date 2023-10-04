@@ -18,9 +18,10 @@ namespace KafkaFlow
         /// <summary>
         /// Gets an available worker to process the message
         /// </summary>
-        /// <param name="partitionKey">Message partition key</param>
+        /// <param name="messageKey">Message key</param>
+        /// <param name="partition">Partition number.</param>
         /// <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken" /> that is cancelled when the consumers stops</param>
         /// <returns></returns>
-        Task<IWorker> GetWorkerAsync(byte[] partitionKey, CancellationToken cancellationToken);
+        Task<IWorker> GetWorkerAsync(byte[] messageKey, int partition, CancellationToken cancellationToken = default);
     }
 }

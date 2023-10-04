@@ -98,7 +98,7 @@ namespace KafkaFlow.Consumers
             await this.startedTaskSource.Task.ConfigureAwait(false);
 
             var worker = (IConsumerWorker)await this.distributionStrategy
-                .GetWorkerAsync(message.Message.Key, stopCancellationToken)
+                .GetWorkerAsync(message.Message.Key, message.Partition.Value, stopCancellationToken)
                 .ConfigureAwait(false);
 
             if (worker is null)
